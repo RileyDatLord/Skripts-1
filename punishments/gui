@@ -1,0 +1,19 @@
+**Note; This requires dependency (Essentials) or in further files the custom punishment strings.**
+
+command /punish [<offline player>] <string>:
+    permission: chat.punish
+    permission message: &cYou do not have the required permissions to execute this command.
+    trigger:
+        if arg-1 is not set:
+            send "&cIncorrect usage format, /punish <player> <reason>"
+        else if arg-1 is set:
+            open chest with 5 rows named "&8Punish Selection &8(&n%arg-1%)" to player
+            format slot 4 of player with arg-1's skull named "&bModifying %arg-1%" with lore "||&rIn this GUI you can punish ||&r%arg-1%'s for %arg-2%.||||&bCurrent Rank||&r    &r? &r%{shortrank.%arg-1's uuid%}%" to be unstealable
+            format slot 22 of player with paper named "&bPunishMents" to be unstealable
+            format slot 29 of player with book named "&4Ban" with lore "||&rClick to punish %arg-1%'s||&rFor %arg-2%." to close then run [make player execute "/ban %arg-1% %arg-2%"]
+            format slot 30 of player with book named "&aKick" with lore "||&rClick to punish %arg-1%'s||&rFor %arg-2%." to close then run [make player execute "/kick %arg-1% %arg-2%"]
+            format slot 31 of player with book named "&cWarn" with lore "||&rClick to warn %arg-1%'s||&rFor %arg-2%." to close then run [make player execute "warn %arg-1% %arg-2%"]
+            format slot 32 of player with book named "&5Mute" with lore "||&rClick to mute %arg-1%'s||&rFor %arg-2%." to close then run [make player execute "mute %arg-1% %arg-2%"]
+            
+            
+   
